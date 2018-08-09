@@ -41,8 +41,8 @@ get.shrunken.object <- function(data, train.ind.list, stages, cores, type = 1, m
                                             y = stages[train.ind]))
     cv.model <- pamr.cv(train.model, 
                                  data = list(x = t(as.matrix(data[train.ind,])),
-                                             y = stages[train.ind]),nfold = 10)
-    type <- as.factor(stages.levels.comb[train.ind])[1]
+                                             y = stages[train.ind]),nfold = 5)
+    type <- as.factor(stages[train.ind])[1]
     mccs <- sapply(seq_along(cv.model$threshold), function(x)
     {
       mccr(get.order(stages[train.ind], type), get.order(cv.model$yhat[,x], type))
