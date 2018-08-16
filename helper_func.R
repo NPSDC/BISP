@@ -3,13 +3,14 @@
 #' @param total.samples The total number of samples
 #' @param  num.group The number of partitions that need to be created
 #' @return a list containing the indexes within with each partition
-build.groups <- function(total.samples, num.group)
+build.groups <- function(total.samples, num.group, seed = 1000)
 {
   gr=NULL
   num.sel=floor(total.samples/num.group)
   num.add=total.samples%%num.group
   range=1:total.samples
   rr=total.samples
+  set.seed(seed)
   for(i in 1:num.group)
   {
     vrem=sample(1:rr,size=num.sel)
