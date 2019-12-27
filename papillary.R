@@ -24,7 +24,7 @@ gr.train <- build.groups(nrow(train.data), 4)
 
 cores = detectCores() - 1
 
-pap.fea.ob <- get.features.object(train.count.data = counts.data[train.ind,]),
+pap.fea.ob <- get.features.object(train.count.data = counts.data[train.ind,],
                                   train.norm.data = train.data, train.stages = stages.prcc.train,
                                   train.ind.list = gr.train, cores.list = c(cores, cores, cores, 1),
                                   type = 1)
